@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,10 @@ class MyApp extends StatelessWidget {
 }
 
 class TipCalculatorScreen extends StatefulWidget {
+  const TipCalculatorScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _TipCalculatorScreenState createState() => _TipCalculatorScreenState();
 }
 
@@ -41,7 +46,7 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
       appBar: AppBar(
         title: Text('Tip Calculator'),
       ),
-      body: SingleChildScrollView( 
+      body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -70,20 +75,20 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: calculateTip,
-                child: Text('CALCULATE'),
                 style:ElevatedButton.styleFrom(
                   foregroundColor: Colors.red,
                 ),
+                child: Text('CALCULATE'),
               ),
               SizedBox(height: 30),
               Text(
                 'Tip: \$${tipAmount.toStringAsFixed(2)}',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
               Text(
                 'Total Amount: \$${totalAmount.toStringAsFixed(2)}',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ],
           ),
